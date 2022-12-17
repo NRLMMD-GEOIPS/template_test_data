@@ -47,6 +47,7 @@ System Requirements
 
 * geoips >= 1.5.3
 * Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass.
+   * git lfs  (if using git to clone test repos)
 * GeoIPS Plugins:
    * @Include list of GeoIPS plugins that are required to read / process these datasets
    * @This should include plugin package name, as well as required version number
@@ -70,6 +71,7 @@ Obtain test repo
     # using $GEOIPS_TESTDATA_DIR and $GEOIPS_CONFIG_FILE:
     source $GEOIPS_CONFIG_FILE
     git clone $GEOIPS_REPO_URL/test_data_@datatype@ $GEOIPS_TESTDATA_DIR/test_data_@datatype@
+    $GEOIPS_TESTDATA_DIR/test_data_@datatype@/uncompress_test_data.sh  # required if compressed datasets
 ```
 
 Run sample test scripts
