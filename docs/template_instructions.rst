@@ -21,9 +21,9 @@ Instructions for setting up test data repository from templates
 
 #. Update VERSION with desired version number
    
-   ```
+   `
    vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/VERSION
-   ```
+   `
    
    *No comments of other contents allowed within VERSION file*
    
