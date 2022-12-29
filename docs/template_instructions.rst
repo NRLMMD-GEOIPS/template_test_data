@@ -19,7 +19,8 @@ Instructions for setting up test data repository from templates
 
 #. Identify any additional instances of @ within README.md, and replace with appropriate content.
 
-#. Update VERSION with desired version number
+#. Update VERSION with desired version 
+
    #. `vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/VERSION`
    #. *No comments of other contents allowed within VERSION file*
    #. *GeoIPS as a whole follows PEP-440 semantic versioning: https://peps.python.org/pep-0440/*
