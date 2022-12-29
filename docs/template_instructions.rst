@@ -21,7 +21,7 @@ Instructions for setting up test data repository from templates
 
 #. Update VERSION with desired version 
 
-   #. :bash:`vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/VERSION`
+   #. :bash:``vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/VERSION``
    #. *No comments of other contents allowed within VERSION file*
    #. *GeoIPS as a whole follows PEP-440 semantic versioning: https://peps.python.org/pep-0440/*
    
