@@ -18,7 +18,7 @@ This template repository contains everything necessary to create a test data rep
 the GeoIPS processing infrastructure.
 
 Follow the 
-[step by step instructions](https://github.com/NRLMMD-GEOIPS/template_basic_plugin/blob/dev/docs/template_instructions.rst)
+[step by step instructions](./docs/template_instructions.rst)
 for modifying the template files within this repo in order to create your own test data repository.
 
 Once test data repository has been set up properly, you can remove the entire
@@ -58,7 +58,7 @@ IF REQUIRED: Install base geoips package
 SKIP IF YOU HAVE ALREADY INSTALLED BASE GEOIPS ENVIRONMENT 
 
 If GeoIPS Base is not yet installed, follow the
-[installation instructions](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/docs/installation.rst)
+[installation instructions](./docs/installation.rst)
 within the geoips source repo documentation.
 
 Additionally, install all GeoIPS plugins and other packages specified in "System Requirements" above
