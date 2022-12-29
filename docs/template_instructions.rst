@@ -14,20 +14,15 @@
 Instructions for setting up test data repository from templates
 ###############################################################
 
-#. Replace all instances of @mydatatype@ in README.md with your actual data type name
+1. Replace all instances of @mydatatype@ in README.md with your actual data type name
    (as in test_data_@mydatatype@)
 
-#. Identify any additional instances of @ within README.md, and replace with appropriate content.
+1. Identify any additional instances of @ within README.md, and replace with appropriate content.
 
-#. Update VERSION with desired version number
-   
-   `
-   vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/VERSION
-   `
-   
-   *No comments of other contents allowed within VERSION file*
-   
-   *GeoIPS as a whole follows PEP-440 semantic versioning: https://peps.python.org/pep-0440/*
+1. Update VERSION with desired version number
+   - `vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/VERSION`
+   - *No comments of other contents allowed within VERSION file*
+   - *GeoIPS as a whole follows PEP-440 semantic versioning: https://peps.python.org/pep-0440/*
    
 #. Create "data" subdirectory, and populate with appropriate datasets
 
