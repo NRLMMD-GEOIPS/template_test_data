@@ -27,17 +27,17 @@ Instructions for setting up test data repository from templates
    
 #. Create "data" subdirectory, and populate with appropriate datasets
 
-   #. :bash:`git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs`
-   #. *If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.*
+   - ``git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs``
+   - *If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.*
    
 #. Create "bg\_data" subdirectory, and populate with appropriate datasets
 
-   #. :bash:`git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs`
-   #. *If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.*
+   - ``git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs``
+   - *If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.*
    
 #. Update CHANGELOG.md with updates / description of datasets
 
-   #. :bash:`vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/CHANGELOG.md`
+   - :bash:`vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/CHANGELOG.md`
 
 
 #############################################################
