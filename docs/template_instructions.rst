@@ -18,17 +18,17 @@ Instructions for setting up test data repository from templates
    (as in test_data_@mydatatype@)
 #. Identify any additional instances of @ within README.md, and replace with appropriate content.
 #. Update VERSION with desired version number
-    i. *vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/VERSION*
-    i. No comments of other contents allowed within VERSION file
-    i. GeoIPS as a whole follows PEP-440 semantic versioning: https://peps.python.org/pep-0440/
+    #. *vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/VERSION*
+    #. No comments of other contents allowed within VERSION file
+    #. GeoIPS as a whole follows PEP-440 semantic versioning: https://peps.python.org/pep-0440/
 #. Create "data" subdirectory, and populate with appropriate datasets
-    i. git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs
-    i. If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.
+    #. git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs
+    #. If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.
 #. Create "bg\_data" subdirectory, and populate with appropriate datasets
-    i. git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs
-    i. If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.
+    #. git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs
+    #. If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.
 #. Update CHANGELOG.md with updates / description of datasets
-    i. *vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/CHANGELOG.md*
+    #. *vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/CHANGELOG.md*
 
 
 #############################################################
