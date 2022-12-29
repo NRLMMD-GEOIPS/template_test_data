@@ -37,7 +37,7 @@ Instructions for setting up test data repository from templates
    
 #. Update CHANGELOG.md with updates / description of datasets
 
-   - :bash:`vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/CHANGELOG.md`
+   - ``vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/CHANGELOG.md``
 
 
 #############################################################
