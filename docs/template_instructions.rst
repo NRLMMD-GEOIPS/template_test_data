@@ -1,8 +1,8 @@
  | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
- | # # # 
+ | # # #
  | # # # Author:
  | # # # Naval Research Laboratory, Marine Meteorology Division
- | # # # 
+ | # # #
  | # # # This program is free software: you can redistribute it and/or modify it under
  | # # # the terms of the NRLMMD License included with this program. This program is
  | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -10,92 +10,59 @@
  | # # # for more details. If you did not receive the license, for more information see:
  | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
+###############################################################
+Instructions for setting up test data repository from templates
+###############################################################
+
+#. Replace all instances of @mydatatype@ in README.md with your actual data type name
+   (as in test_data_@mydatatype@)
+
+#. Identify any additional instances of @ within README.md, and replace with appropriate content.
+
+#. Update VERSION with desired version 
+
+   - ``vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/VERSION``
+   - *No comments of other contents allowed within VERSION file*
+   - *GeoIPS as a whole follows PEP-440 semantic versioning: https://peps.python.org/pep-0440/*
+   
+#. Create "data" subdirectory, and populate with appropriate datasets
+
+   - ``git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs``
+   - *If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.*
+   
+#. Create "bg\_data" subdirectory, and populate with appropriate datasets
+
+   - ``git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs``
+   - *If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.*
+   
+#. Update CHANGELOG.md with updates / description of datasets
+
+   - ``vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/CHANGELOG.md``
+
 
 #############################################################
-Instructions for setting up repository from template
+Final contents within $GEOIPS_TESTDATA_DIR:
 #############################################################
 
-#. Update **README.md** with your appropriate package information.
-    * *cd $GEOIPS_PACKAGES_DIR/@package@*
-    * *vim README.md*
-    * Replace @package@ with your actual package name (my_package_name):
-        * :%s/@package@/my_package_name/gc
-    * Search for '@' within the README and follow the included instructions to update appropriately.
-    * Remove all lines containing '@'
-    * *git commit README.md*
-#. Update VERSION with desired version number
-    * *cd $GEOIPS_PACKAGES_DIR/@package@*
-    * *vim VERSION*
-    * No comments or other contents allowed within VERSION file.
-    * GeoIPS as a whole follows PEP-440 semantic versioining: https://peps.python.org/pep-0440/
-    * *git commit VERSION*
-#. Update package subdirectory from my_package to @package@
-    * *cd $GEOIPS_PACKAGES_DIR/@package@*
-    * *git mv my_package @package@*
-    * *git commit my_package @package@*
-#. Update config file from config_my_package to @package@
-    * *cd $GEOIPS_PACKAGES_DIR/@package@*
-    * *git mv setup/config_my_package setup/config_@package@*
-    * *vim setup/config_@package@*
-    * Follow instructions within template file
-    * *git commit setup/config_my_package setup/config_@package@*
-#. Update/add modules within @package@/interface_modules with desired functionality.
-    * *cd $GEOIPS_PACKAGES_DIR/@package@/@package@/interface_modules*
-    * Template/example modules included for reference
-    * Modify or delete directories / files as appropriate.
-    * Add additional interface_modules directories and Python modules as needed -
-        see https://github.com/NRLMMD-GEOIPS/geoips/tree/main/geoips/interface_modules
-        for additional supported sub directories and module types.
-    * *git commit .*
-#. Update/add modules within @package@/yaml_configs with desired functionality.
-    * *cd $GEOIPS_PACKAGES_DIR/@package@/@package@/yaml_configs*
-    * Template/example YAML files included for reference
-    * Modify or delete directories / files as appropriate.
-    * Add additional yaml_configs directories and Python modules as needed -
-        see https://github.com/NRLMMD-GEOIPS/geoips/tree/main/geoips/yaml_configs
-        for additional supported sub directories and YAML types.
-    * *git commit .*
-#. Update setup.py appropriately
-    * *cd $GEOIPS_PACKAGES_DIR/@package@*
-    * *vim setup.py*
-    * Update @package@ to package name
-    * Add any new interface modules to "entry_points" (every module added in the interface_modules subdirectory
-        will have an associated entry point in setup.py)
-    * Add any required external dependencies to "install_requires"
-    * *git commit setup.py*
-#. Add individual test scripts in @package@/tests/scripts/\*.sh
-    * *cd $GEOIPS_PACKAGES_DIR/@package@*
-    * *@mydatatype@.tc.@product@.imagery_clean.sh* is a direct single_source example command -
-      this tests a single product for a single data type. You do not have to exhaustively test every piece of
-      functionality with direct single source calls - but it can be nice to have one or 2 examples for reference.
-    * *test_config.yaml* is called by test_config.sh to produce output for multiple products with a single call.
-      Testing all products can be more efficiently performed using YAML output config testing vs direct single source
-      calls.
-    * These test scripts provide both examples of how the package is called via geoips, as well as
-      a means of ensuring the processing continues to function as updates are made to external dependencies.
-    * Rename / delete / add test scripts appropriately.
-    * *git commit tests/scripts*
-#. Add all test scripts to @package@/tests/test_all.sh
-    * *cd $GEOIPS_PACKAGES_DIR/@package@*
-    * *vim tests/test_all.sh*
-    * This script is called automatically during exhaustive geoips testing - requires 0 return.
-    * Ensure all functionality included.
-    * *git commit tests/test_all.sh*
-#. Add one example test script to README.md, if desired
-    * *cd $GEOIPS_PACKAGES_DIR/@package@*
-    * *vim README.md*
-    * Add one direct test call to last section, "Test @package@ installation"
-    * *git commit README.md*
-#. Update CHANGELOG.md with description of updates / included modules
-    * *cd $GEOIPS_PACKAGES_DIR/@package@*
-    * *vim CHANGELOG.md*
-    * *git commit CHANGELOG.md*
-#. Make sure all new and updated files have been commited and pushed
-    * *cd $GEOIPS_PACKAGES_DIR/@package@*
-    * *git commit .*
-    * *git push*
-#. Remove this 'template_instructions.rst' file
-    * *cd $GEOIPS_PACKAGES_DIR/@package@*
-    * *git rm docs/template_instructions.rst*
-    * *git commit docs/template_instructions.rst*
-    * *git push*
+* Directory: **test_data_mydatatype/data**
+    * Populate with representative test datasets
+    * Ie, good TC cases, or test datasets with appropriate meteorological features.
+* Directory: **test_data_mydatatype/bg_data**
+    * You can pull ABI or AHI bg data from AWS using rclone,
+    * see "$GEOIPS/scripts/download\_noaa\_aws\_data.sh" for associated rclone commands
+* File: **test_data_mydatatype/uncompress_test_data.sh**
+    * Required if any test datasets are compressed - will automatically run during standard installation.
+* File: **test_data_mydatatype/VERSION**
+    * In the event datasets are updated - include a VERSION number for this repo (can match geoips VERSION,
+        or you can come up with your own)
+* File: **test_data_mydatatype/README.md**
+    * README for installing GeoIPS and running tests on this dataset
+* File: **test_data_mydatatype/CHANGELOG.md**
+    * Track any changes made to the repository
+* File: **.gitattributes**
+    * This ensure git repository is tracked using Large File Storage (LFS)
+    * This file can be automatically created by running "git lfs track"
+    * git lfs track \*.tgz
+    * git lfs track \*.nc
+    * Additional file extensions as needed
+
