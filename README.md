@@ -70,7 +70,7 @@ Obtain test repo
     # Assuming you followed the fully supported installation,
     # using $GEOIPS_TESTDATA_DIR and $GEOIPS_CONFIG_FILE:
     source $GEOIPS_CONFIG_FILE
-    git clone $GEOIPS_REPO_URL/test_data_@datatype@ $GEOIPS_TESTDATA_DIR/test_data_@datatype@
+    git clone https://github.com/NRLMMD-GEOIPS/test_data_@datatype@ $GEOIPS_TESTDATA_DIR/test_data_@datatype@
     $GEOIPS_TESTDATA_DIR/test_data_@datatype@/uncompress_test_data.sh  # required if compressed datasets
 ```
 
