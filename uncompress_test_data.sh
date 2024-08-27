@@ -1,4 +1,4 @@
-# # # Distribution Statement A. Approved for public release. Distribution unlimited.
+# # # Distribution Statement A. Approved for public release. Distribution is unlimited.
 # # #
 # # # Author:
 # # # Naval Research Laboratory, Marine Meteorology Division
@@ -36,5 +36,5 @@ primary_data_path=$testdata_dir/data/
 $uncompress_script $geo_data_path tgz
 $uncompress_script $geo_data_path bunzip2
 
-$uncompress_script $data_path tgz
-$uncompress_script $data_path gunzip
+$uncompress_script $primary_data_path tgz
+$uncompress_script $primary_data_path gunzip
