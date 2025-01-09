@@ -1,0 +1,94 @@
+Major New Functionality:
+  - title: "Add standard top level and installation files"
+    description: |
+      Standard README, release notes for initial release, decompression script, etc.
+
+      * **README.md**: standard README with repo cloning, optional geoips installation, and testing
+      * **CHANGELOG.rst**: Standard CHANGELOG contents
+      * **uncompress_test_data.sh**: Script to automatically uncompress all the test data
+      * MAYBE **.gitattributes**: If needed, includes files to automatically track via git lfs
+      * **.gitignore**: Files to ignore.
+      * **.github**: standard workflows.
+    files:
+      added:
+        - "README.md"
+        - "CHANGELOG.rst"
+        - "docs/source/releases/latest/initial-commit.yaml"
+        - ".gitignore"
+        - "uncompress_test_data.sh"
+      deleted:
+        - ""
+      modified:
+        - ""
+      moved:
+        - ""
+    date:
+      start: 1000-01-01
+      finish: 1000-01-01
+    related-issue:
+      number: 0
+      repo_url: "https://github.com/NRLMMD-GEOIPS/geoips"
+  - title: "Add test datasets"
+    description: |
+      Create one or more release note sections here enumerating specific
+      test datasets that were added to this test data repository.
+
+      * @testdataset 1 description
+      * @testdataset 2 description
+    files:
+      added:
+        - "@testdatarepo@/data/@subdirectories@/@datatype1@"
+        - "@testdatarepo@/data/@subdirectories@/@datatype2@"
+      deleted:
+        - ""
+      modified:
+        - ""
+      moved:
+        - ""
+    related-issue:
+      number: 0
+      repo_url: "https://github.com/NRLMMD-GEOIPS/geoips"
+    date:
+      start: 1000-01-01
+      finish: 1000-01-01
+  - title: "Add background imagery test datasets"
+    description: |
+      If applicable, include the coincident test datasets that are included
+      for background imagery (optional).
+
+      * @testdataset 1 description
+      * @testdataset 2 description
+    files:
+      added:
+        - "@testdatarepo@/bg_data/@subdirectories@/@datatype1@"
+        - "@testdatarepo@/bg_data/@subdirectories@/@datatype2@"
+      deleted:
+        - ""
+      modified:
+        - ""
+      moved:
+        - ""
+    related-issue:
+      number: 0
+      repo_url: "https://github.com/NRLMMD-GEOIPS/geoips"
+    date:
+      start: 1000-01-01
+      finish: 1000-01-01
+Release Updates:
+  - title: "Versions including updates to template repo"
+    description: |
+      To ensure release note is updated with each release, and to track which versions
+      actually resulted in updates on template repo, always add the currently
+      tagged version to this list.
+       
+      This "Release Updates" section can be removed for your actual release notes
+      section, this is specifically for the template repo itself.
+
+    files:
+      added:
+        - 1.5.2
+        - 1.6.0
+        - 1.12.3
+        - 1.14.2
+        - 1.14.3
+        - 1.14.4
