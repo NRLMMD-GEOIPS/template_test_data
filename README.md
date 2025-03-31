@@ -1,14 +1,5 @@
-    # # # Distribution Statement A. Approved for public release. Distribution is unlimited.
-    # # #
-    # # # Author:
-    # # # Naval Research Laboratory, Marine Meteorology Division
-    # # #
-    # # # This program is free software: you can redistribute it and/or modify it under
-    # # # the terms of the NRLMMD License included with this program. This program is
-    # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
-    # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
-    # # # for more details. If you did not receive the license, for more information see:
-    # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+    # # # This source code is protected under the license referenced at
+    # # # https://github.com/NRLMMD-GEOIPS.
 
 GeoIPS Test Data Repository Template
 ====================================
@@ -30,49 +21,57 @@ Instructions for setting up test data repository from templates
   (as in test_data_@mydatatype@)
 * Identify any additional instances of @ within README.md, and replace with appropriate content.
 * Create "data" subdirectory, and populate with appropriate datasets
-  * git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs
-  * If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.
-* Create "bg\_data" subdirectory, and populate with appropriate datasets
-  * git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs
-  * If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.
-* Rename docs/source/releases/v0_0_1.rst with the appropriate version
-  * See [geoips/update_this_release_note](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/update_this_release_note)
-    for the current version
-  * *git mv docs/source/releases/v0_0_1.rst docs/source/releases/vX_Y_Z.rst*
-* Update docs/source/releases/v_X_Y_Z.rst with updates / description of datasets
-  * *vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/docs/source/releases/vX_Y_Z.rst*
-* Update index.rst with the updated version
-  * *vim $GEOIPS_TESTDATA_DIR/test_data_@mydatatype@/docs/source/releases/index.rst*
 
+  * MAYBE, if you really want to use git lfs:
+
+    * git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs
+  * If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.
+
+    * Note when using `uncompress_test_data.sh` you will want to name any folders within a tgz file
+      with the same base name as the tgz file (see uncompress_test_data.sh for more details).
+* OPTIONAL Create "bg\_data" subdirectory, and populate with appropriate datasets
+  (for background imagery - often coincident collocated geostationary data)
+
+  * MAYBE, if you really want to use git lfs:
+
+    * git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs
+  * If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.
+* Update docs/source/releases/latest/initial-commit.yaml with updates / description of datasets
+
+  * See [geoips/CHANGELOG_TEMPLATE.rst](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/CHANGELOG_TEMPLATE.rst)
+    for instructions on generating release notes.
+  * *vim docs/source/releases/latest/initial-commit.yaml*
 
 Final contents within $GEOIPS_TESTDATA_DIR:
 ===========================================
 
 * Directory: **test_data_mydatatype/data**
-    * Populate with representative test datasets
-    * Ie, good TC cases, or test datasets with appropriate meteorological features.
+  * Populate with representative test datasets
+  * Ie, good TC cases, or test datasets with appropriate meteorological features.
 * Directory: **test_data_mydatatype/bg_data**
-    * You can pull ABI or AHI bg data from AWS using rclone,
-    * see "$GEOIPS/scripts/download\_noaa\_aws\_data.sh" for associated rclone commands
+  * OPTIONAL
+  * You can pull ABI or AHI bg data from AWS using rclone,
+  * see "$GEOIPS/scripts/download\_noaa\_aws\_data.sh" for associated rclone commands
 * File: **test_data_mydatatype/uncompress_test_data.sh**
-    * Required if any test datasets are compressed - will automatically run during standard installation.
+  * Required if any test datasets are compressed - will automatically run during standard installation.
+  * Default setup will likely work (see comments in script for details on what 
+    files it will decompress) - modify the script if required.
+  * Ensure if you tgz a folder that the tgz base filename matches the folder name
+    (see `uncompress_test_data.sh` script for more details)
 * File: **test_data_mydatatype/README.md**
-    * README for installing GeoIPS and running tests on this dataset
+  * README for installing GeoIPS and running tests on this dataset
 * File: **test_data_mydatatype/CHANGELOG.rst**
-    * Standard CHANGELOG.rst
-* File: **test_data_mydatatype/docs/source/releases/vX_Y_Z.rst**
-    * Release note for the current version.
-    * Ensure matches version found in geoips/update_this_release_note
-    * Remove v0_0_1.rst
-* File: **test_data_mydatatype/docs/source/releases/index.rst**
-    * Update with the version you just added.
-    * Remove v0_0_1
-* File: **.gitattributes**
-    * This ensure git repository is tracked using Large File Storage (LFS)
-    * This file can be automatically created by running "git lfs track"
-    * git lfs track \*.tgz
-    * git lfs track \*.nc
-    * Additional file extensions as needed
+  * Standard CHANGELOG.rst
+* File: **test_data_mydatatype/docs/source/releases/initial-commit.yaml**
+  * Release note for the initial commit. 
+  * Update with release notes relating to your initial functionality. 
+* MAYBE File: **.gitattributes**
+  * Only created if you are tracking with git lfs.
+  * This ensure git repository is tracked using Large File Storage (LFS)
+  * This file can be automatically created by running "git lfs track"
+  * git lfs track \*.tgz
+  * git lfs track \*.nc
+  * Additional file extensions as needed
 
 Remove all contents this section and above
 ==========================================
@@ -99,11 +98,11 @@ and descriptions. 4-5 bullets.
 System Requirements
 ---------------------
 
-* geoips >= 1.12.3
+* geoips >= 1.14.2
 * Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass.
 * GeoIPS Plugins:
-   * @Include list of GeoIPS plugins that are required to read / process these datasets
-   * @This should include plugin package name, as well as required version number
+  * @Include list of GeoIPS plugins that are required to read / process these datasets
+  * @This should include plugin package name, as well as required version number
 
 
 IF REQUIRED: Install base geoips package

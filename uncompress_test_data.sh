@@ -1,16 +1,11 @@
-# # # Distribution Statement A. Approved for public release. Distribution is unlimited.
-# # #
-# # # Author:
-# # # Naval Research Laboratory, Marine Meteorology Division
-# # #
-# # # This program is free software: you can redistribute it and/or modify it under
-# # # the terms of the NRLMMD License included with this program. This program is
-# # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
-# # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
-# # # for more details. If you did not receive the license, for more information see:
-# # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+# # # This source code is protected under the license referenced at
+# # # https://github.com/NRLMMD-GEOIPS.
 
 #!/bin/bash
+
+# Please ensure folder names match tgz file names, as indicated below!
+# uncompress_test_data.sh will not attempt to re-un-tar files if a folder already
+# exists of the same name as the basename of the tgz file name (excluding .tgz).
 
 # This is a generalized uncompression script that will uncompress any of the following:
 # bg_data/subdir.tgz -> bg_data/subdir
