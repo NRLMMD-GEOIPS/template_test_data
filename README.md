@@ -25,17 +25,21 @@ Instructions for setting up test data repository from templates
   * MAYBE, if you really want to use git lfs:
 
     * git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs
-  * If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.
+  * Compress any datasets that are composed of many files within a single folder (e.g,
+    ahi, seviri, ABI, viirs, etc). When tracking test data repositories in git, it does
+    not appreciate having many many individual files checked in.
 
     * Note when using `uncompress_test_data.sh` you will want to name any folders within a tgz file
       with the same base name as the tgz file (see uncompress_test_data.sh for more details).
+    * Ensure the "uncompress\_test\_data.sh" script will uncompress them correctly.
 * OPTIONAL Create "bg\_data" subdirectory, and populate with appropriate datasets
   (for background imagery - often coincident collocated geostationary data)
 
+  * Compress test datasets as mentioned above for the 'data' directory,
+    ensure the "uncompress\_test\_data.sh" script will uncompress them.
   * MAYBE, if you really want to use git lfs:
 
     * git lfs track \*.@ext@  # Ensure all large data files are tracked with git lfs
-  * If you compress any datasets, ensure the "uncompress\_test\_data.sh" script will uncompress them.
 * Update docs/source/releases/latest/initial-commit.yaml with updates / description of datasets
 
   * See [geoips/CHANGELOG_TEMPLATE.rst](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/CHANGELOG_TEMPLATE.rst)
